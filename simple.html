@@ -89,8 +89,10 @@
    Telegram.WebApp.onEvent('mainButtonClicked', function(){
       // tg.sendData("some string that we need to send"); 
       let str = "{ \"data\" : \"prova\", \"files\" : \"altra prova\" }";
-      tg.sendData(str); 
-      tg.answerWebAppQuery(str);
+      //tg.sendData(str); 
+      //tg.answerWebAppQuery(str);
+      const result = [];
+      tg.answerInlineQuery(tg.webAppData.id, result);
       // attenzione, il metodo sendData funziona solo con i keyboardButton e non con le InlineKeyboardButton
    });
 
