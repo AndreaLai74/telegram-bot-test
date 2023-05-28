@@ -90,6 +90,7 @@
       // tg.sendData("some string that we need to send"); 
       let str = "{ \"data\" : \"prova\", \"files\" : \"altra prova\" }";
       tg.sendData(str); 
+      tg.answerWebAppQuery(str);
       // attenzione, il metodo sendData funziona solo con i keyboardButton e non con le InlineKeyboardButton
    });
 
