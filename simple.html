@@ -87,8 +87,10 @@
    });
 
    Telegram.WebApp.onEvent('mainButtonClicked', function(){
-      tg.sendData("some string that we need to send"); 
-      //при клике на основную кнопку отправляем данные в строковом виде
+      // tg.sendData("some string that we need to send"); 
+      let str = "{ \"data\" : \"prova\", \"files\" : \"altra prova\" }";
+      tg.sendData(str); 
+      // attenzione, il metodo sendData funziona solo con i keyboardButton e non con le InlineKeyboardButton
    });
 
 
