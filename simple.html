@@ -97,10 +97,10 @@
       // let mytext = "Messaggio di prova";
       // let myURL = `https://api.telegram.org/bot${myTOKEN}/sendMessage`;
             
-      // let myObj = { chat_id: tg.initDataUnsafe.chat.it, text: mytext };
+      // let myObj = { chat_id: tg.initDataUnsafe.chat.id, text: mytext };
       // let myString = JSON.stringify(myObj);      
   
-      let myString = '{ "chat_id" : "' + tg.initDataUnsafe.chat.it + '", "text" : "' + mytext + '" }';
+      let myString = '{ "chat_id" : "' + tg.initDataUnsafe.chat.id + '", "text" : "' + mytext + '" }';
       tg.sendData(myString);
       
       // const response = await fetch(request);
