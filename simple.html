@@ -99,8 +99,12 @@
             
       // let myObj = { chat_id: tg.initDataUnsafe.chat.id, text: mytext };
       // let myString = JSON.stringify(myObj);      
-  
-      let myString = "Provo!" + tg.initDataUnsafe.query_id;
+      let initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
+      let initData = Telegram.WebApp.initData;
+      
+      let chatId = !initDataUnsafe.chat.id ? "NO_CH" : initDataUnsafe.chat.id;
+      
+      let myString = "Provo! " + chatId + (!initData ? " VUOTO " : initData);
       tg.sendData(myString);
       
       // const response = await fetch(request);
