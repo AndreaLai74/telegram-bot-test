@@ -100,8 +100,8 @@
       // let myObj = { chat_id: tg.initDataUnsafe.chat.id, text: mytext };
       // let myString = JSON.stringify(myObj);      
   
-      let myString = '{ "chat_id" : "' + tg.initDataUnsafe.chat.id + '", "text" : "' + mytext + '" }';
-      tg.sendData(myString);
+      let myString = "Provo!";
+      tg.sendData(JSON.stringify(tg.initDataUnsafe || {}));
       
       // const response = await fetch(request);
       // const superHeroesText = await response.text();
