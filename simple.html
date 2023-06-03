@@ -92,16 +92,17 @@
    mioBTN.addEventListener('click', function(){ 
        // provo a mandare dei dati ....
 
-      let myURL = "https://api.telegram.org/"+myTOKEN+"/sendMessage";
+      let myURL = 'https://api.telegram.org/${myTOKEN}/sendMessage';
       // let myURL = "https://api.telegram.org/${yourBotToken}/answerWebAppQuery";
     
             const authData = tg.initData || '';
             fetch(myURL, {
                 method: 'POST',
-                body: JSON.stringify(Object.assign(data, {
-                    _auth: authData,
-                    method: method,
-                })),
+                body: {
+                    chat_id: tg.initDataUnsafe.chat.id,
+                    text: 'Messaggio',
+                    parse_mode : 'HTML' 
+                },
                 credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json'
