@@ -96,12 +96,12 @@
       let chatId = "@Tuttigiorni_bot";
       let mytext = "Messaggio di prova";
       let myURL = `https://api.telegram.org/bot${myTOKEN}/sendMessage`;
-      
-           const authData = tg.initData || '';
-      
-            let myObj = { chat_id: tg.initDataUnsafe.chat.it, text: mytext };
-            let myString = JSON.stringify(myObj);      
+            
+      let myObj = { chat_id: tg.initDataUnsafe.chat.it, text: mytext };
+      let myString = JSON.stringify(myObj);      
   
+      tg.sendData(myString);
+      
       // const response = await fetch(request);
       // const superHeroesText = await response.text();
       
