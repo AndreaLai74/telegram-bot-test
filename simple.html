@@ -92,29 +92,29 @@
    mioBTN.addEventListener('click', function(){ 
        // provo a mandare dei dati ....
 
-      let myURL = 'https://api.telegram.org/${myTOKEN}/sendMessage';
       // let myURL = "https://api.telegram.org/${yourBotToken}/answerWebAppQuery";
-    
-            const authData = tg.initData || '';
-            fetch(myURL, {
-                method: 'POST',
-                body: {
-                    chat_id: tg.initDataUnsafe.chat.id,
-                    text: 'Messaggio',
-                    parse_mode : 'HTML' 
-                },
-                credentials: 'include',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(function(response) {
-                return response.json();
-            }).then(function(result) {
-                onCallback && onCallback(result);
-            }).catch(function(error) {
-                onCallback && onCallback({error: 'Server error'});
-            });
+      let chatId = "@Tuttigiorni_bot";
+      let text = "Messaggio di prova";
+      let myURL = `https://api.telegram.org/bot${myTOKEN}/sendMessage?chat_id=${chatId}&text=${text}`;
       
+           const authData = tg.initData || '';
+
+           const response = await fetch(myURL, {
+             method: "GET", // *GET, POST, PUT, DELETE, etc.
+             mode: "cors", // no-cors, *cors, same-origin
+             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+             credentials: "same-origin", // include, *same-origin, omit
+             headers: {
+               // "Content-Type": "application/json",
+               "Content-Type": "application/x-www-form-urlencoded",
+             },
+             redirect: "follow", // manual, *follow, error
+             referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+             body: JSON.stringify(data), // body data type must match "Content-Type" header
+           });
+           return response.json();
+   
+               
    });
 
    
