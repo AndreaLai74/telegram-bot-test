@@ -98,14 +98,13 @@
       let myURL = `https://api.telegram.org/bot${myTOKEN}/sendMessage`;
       
            const authData = tg.initData || '';
-
-            var data = {
-              "chat_id": tg.initDataUnsafe.chat.id,
-              "text": mytext
-            };
       
-      let str = '{ "chat_id" : "' + tg.initDataUnsafe.chat.id + '", "text": "' + mytext + '" }';
-            
+            let myObj = { chat_id: tg.initDataUnsafe.chat.it, text: mytext };
+            let myString = JSON.stringify(myObj);      
+  
+      // const response = await fetch(request);
+      // const superHeroesText = await response.text();
+      
            fetch(myURL, {
              method: "POST", // *GET, POST, PUT, DELETE, etc.
              mode: "cors", // no-cors, *cors, same-origin
@@ -116,8 +115,7 @@
              },
              redirect: "follow", // manual, *follow, error
              referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-             body: str
-              //body: JSON.stringify(data), // body data type must match "Content-Type" header
+             body: JSON.stringify(myObj) // body data type must match "Content-Type" header
            });
            
    
