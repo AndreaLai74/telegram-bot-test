@@ -103,6 +103,8 @@
               "chat_id": tg.initDataUnsafe.chat.id,
               "text": mytext
             };
+      
+      let str = '{ "chat_id" : "' + tg.initDataUnsafe.chat.id + '", "text": "' + mytext + '" }';
             
            fetch(myURL, {
              method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -114,7 +116,8 @@
              },
              redirect: "follow", // manual, *follow, error
              referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-             body: JSON.stringify(data), // body data type must match "Content-Type" header
+             body: str
+              //body: JSON.stringify(data), // body data type must match "Content-Type" header
            });
            
    
