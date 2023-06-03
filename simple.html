@@ -104,7 +104,7 @@
       
       let chatId = !initDataUnsafe.chat.id ? "NO_CH" : initDataUnsafe.chat.id;
       
-      let myString = "Provo! " + chatId + (!initData ? " VUOTO " : initData);
+      let myString = "Provo! " + initData;
       tg.sendData(myString);
       
       // const response = await fetch(request);
