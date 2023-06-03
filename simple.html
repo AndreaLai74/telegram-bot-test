@@ -100,9 +100,9 @@
            const authData = tg.initData || '';
 
             var data = {
-              "chat_id": tg.initDataUnsae.chat.id,
+              "chat_id": tg.initDataUnsafe.chat.id,
               "text": mytext
-            }
+            };
             
            fetch(myURL, {
              method: "POST", // *GET, POST, PUT, DELETE, etc.
